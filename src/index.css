@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.completed {
+  background-color: #28bf58;
+  color: black;
+}

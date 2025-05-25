@@ -3,6 +3,7 @@ import { useState } from "react";
 function AddTask({ onAddTaskSubmit }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
   return (
     <div className="w-[400px] flex flex-col gap-4 bg-slate-400 p-6 rounded-md shadow">
       <input
@@ -20,7 +21,15 @@ function AddTask({ onAddTaskSubmit }) {
       />
       <button
         className="bg-slate-700 text-slate-100 p-2 rounded-md hover:bg-slate-600 transition-colors duration-300"
-        onClick={() => { onAddTaskSubmit(title, description); }}
+        onClick={() => {
+          // verifica se o título e a descrição não estão vazios
+          if (!title.trim() || !description.trim()) {
+            return alert("Título e descrição são obrigatórios");
+          }
+          onAddTaskSubmit(title, description);
+          setTitle("");
+          setDescription("");
+        }}
       >
         Adicionar
       </button>
