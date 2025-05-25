@@ -1,16 +1,73 @@
-import AddTask from './components/AddTask'
-import Tasks from './components/Tasks'
+import { useState } from "react";
+import AddTask from "./components/AddTask";
+import Tasks from "./components/Tasks";
 
 function App() {
+  const [tasks, setTasks] = useState([
+    {
+      id: 1,
+      title: "Estudar React",
+      description: "Estudar React na plataforma Rocketseat",
+      completed: false,
+    },
+    {
+      id: 2,
+      title: "Estudar JavaScript",
+      description: "Estudar JavaScript na plataforma Rocketseat",
+      completed: false,
+    },
+    {
+      id: 3,
+      title: "Estudar TypeScript",
+      description: "Estudar TypeScript na plataforma Rocketseat",
+      completed: false,
+    },
+  ]);
+
+  // Função para adicionar uma nova tarefa
+  function onAddTaskSubmit(title, description) {
+    const newTask = {
+      id: tasks.length + 1,
+      title,
+      description,
+      completed: false,
+    };
+    setTasks([...tasks, newTask]);
+  }
+
+  function onTaskClick(taskId) {
+    const newTask = tasks.map((task) => {
+      if (task.id === taskId) {
+        return { ...task, completed: !task.completed };
+      }
+      return task;
+    });
+    setTasks(newTask);
+  }
+
+  function onDeleteTaskClick(taskId) {
+    const newTask = tasks.filter((task) => task.id !== taskId);
+    setTasks(newTask);
+  }
 
   return (
-    <div>
-      <h1 className="text-3xl text-blue-500">Gerenciador de Tarefas</h1>
+    <div className="w-screen h-screen bg-slate-500 flex flex-col items-center gap-4 pt-10">
+      <div className="w-[500px] space-y-4">
+        <h1 className="text-3xl text-slate-100 font-bold text-center">
+          Gerenciador de Tarefas
+        </h1>
+      </div>
 
-      <AddTask />
-      <Tasks />
+      <AddTask
+        onAddTaskSubmit={onAddTaskSubmit}
+      />
+      <Tasks
+        tasks={tasks}
+        onTaskClick={onTaskClick}
+        onDeleteTaskClick={onDeleteTaskClick}
+      />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
