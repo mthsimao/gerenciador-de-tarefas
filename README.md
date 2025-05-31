@@ -1,8 +1,13 @@
-# React + Vite
+# Gerenciador de tarefas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Eu fiz esse projeto com o intuito de começar a estudar React
 
-Currently, two official plugins are available:
+Atualmente, eu estou inicando no React, então é um projeto básico.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Eu usei bibliotecas como
+- Lucide react 
+- React router 
+- Tailwind CSS 
+
+## Confira esse projeto [aqui](https://gerenciador-de-tarefas-ochre-gamma.vercel.app/)
+## Confira também o meu próprio portfólio. [portfolio](https://mthsimao.github.io/portfolio/)
